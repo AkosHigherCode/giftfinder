@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Gift Finder</title>
+
+    <!-- Copy start HEAD -->
+
+    <link href="./nouislider.css" rel="stylesheet">
+    <script src="./nouislider.js"></script>
+    <script src="./wNumb.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+    <!-- Copy end HEAD -->
+
+</head>
+<body style="margin: 0">
+
+  <!-- Global styles to be included once per page -->
+    <style>
+      @font-face {
+        font-family: 'cerapro';
+        src: url("./fonts/cerapro-bold-webfont.woff2") format("woff2"), url("./fonts/cerapro-bold-webfont.woff") format("woff");
+        font-weight: bold;
+        font-style: normal;
+      }
+      
+      html {
+        font-family: "cerapro";
+      }
+    </style>
+  <!-- Global styles end -->
+
+  <!-- Copy start BODY -->
+    <style>
+      .gifi__wrapper {
+        width: 100rem;
+        max-width: 100%;
+        margin: auto;
+        font-family: "cerapro";
+        position: relative;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        font-size: 1rem;
+      }
+      
+      .gifi__wrapper button {
+        color: #000000;
+      }
+      
+      .gifi__wrapper button:active {
+        color: #000000;
+      }
+      
+      .gifi__wrapper::after {
+        content: '';
+        display: block;
+        width: 100%;
+        clear: both;
+      }
+      
+      .gifi__title-wrapper {
+        padding-bottom: 12.5rem;
+        width: 100%;
+        position: relative;
+      }
+      
+      .gifi__title {
+        top: 25%;
+        left: 3.125rem;
+        width: calc(100% - 6.25rem);
+        padding: 0 3.125rem;
+        position: absolute;
+        height: 50%;
+        text-align: center;
+        background-color: #ffffff;
+        border: 0.5em solid black;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        z-index: 5;
+      }
+      
+      .gifi__title h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        margin: 0;
+        width: 100%;
+        z-index: 5;
+        font-size: 2em;
+      }
+      
+      @-webkit-keyframes green-rect-animation {
+        0% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+        25% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+        50% {
+          -webkit-transform: translateX(100%);
+                  transform: translateX(100%);
+        }
+        75% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+        100% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+      }
+      
+      @keyframes green-rect-animation {
+        0% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+        25% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+        50% {
+          -webkit-transform: translateX(100%);
+                  transform: translateX(100%);
+        }
+        75% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+        100% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+        }
+      }
+      
+      .gifi__green-square {
+        position: absolute;
+        top: 25%;
+        left: 0;
+        padding-bottom: 3.125rem;
+        width: 3.125rem;
+        background-color: #00af4d;
+        z-index: 1;
+        -webkit-animation: green-rect-animation 3s ease 0s infinite;
+                animation: green-rect-animation 3s ease 0s infinite;
+      }
+      
+      @-webkit-keyframes blue-circle-animation {
+        0% {
+          -webkit-transform: translate(0, 0) scale(1);
+                  transform: translate(0, 0) scale(1);
+        }
+        25% {
+          -webkit-transform: translate(50%, -25%) scale(0.5);
+                  transform: translate(50%, -25%) scale(0.5);
+        }
+        50% {
+          -webkit-transform: translate(50%, -25%) scale(0.5);
+                  transform: translate(50%, -25%) scale(0.5);
+        }
+        75% {
+          -webkit-transform: translate(50%, -25%) scale(0.5);
+                  transform: translate(50%, -25%) scale(0.5);
+        }
+        100% {
+          -webkit-transform: translate(0, 0) scale(1);
+                  transform: translate(0, 0) scale(1);
+        }
+      }
+      
+      @keyframes blue-circle-animation {
+        0% {
+          -webkit-transform: translate(0, 0) scale(1);
+                  transform: translate(0, 0) scale(1);
+        }
+        25% {
+          -webkit-transform: translate(50%, -25%) scale(0.5);
+                  transform: translate(50%, -25%) scale(0.5);
+        }
+        50% {
+          -webkit-transform: translate(50%, -25%) scale(0.5);
+                  transform: translate(50%, -25%) scale(0.5);
+        }
+        75% {
+          -webkit-transform: translate(50%, -25%) scale(0.5);
+                  transform: translate(50%, -25%) scale(0.5);
+        }
+        100% {
+          -webkit-transform: translate(0, 0) scale(1);
+                  transform: translate(0, 0) scale(1);
+        }
+      }
+      
+      .gifi__blue-circle {
+        position: absolute;
+        top: 25%;
+        left: 0;
+        padding-bottom: 6.25rem;
+        width: 6.25rem;
+        background-color: #c5def0;
+        border-radius: 50%;
+        z-index: 0;
+        -webkit-animation: blue-circle-animation 3s ease 0s infinite;
+                animation: blue-circle-animation 3s ease 0s infinite;
+      }
+      
+      @-webkit-keyframes yellow-rect-animation {
+        0% {
+          -webkit-transform: scaleX(1) translate(0, 0);
+                  transform: scaleX(1) translate(0, 0);
+        }
+        25% {
+          -webkit-transform: scaleX(0.5) translate(50%, 0);
+                  transform: scaleX(0.5) translate(50%, 0);
+        }
+        50% {
+          -webkit-transform: scaleX(0.5) translate(50%, 100%);
+                  transform: scaleX(0.5) translate(50%, 100%);
+        }
+        75% {
+          -webkit-transform: scaleX(1) translate(50%, 100%);
+                  transform: scaleX(1) translate(50%, 100%);
+        }
+        75% {
+          -webkit-transform: scaleX(1) translate(0, 100%);
+                  transform: scaleX(1) translate(0, 100%);
+        }
+      }
+      
+      @keyframes yellow-rect-animation {
+        0% {
+          -webkit-transform: scaleX(1) translate(0, 0);
+                  transform: scaleX(1) translate(0, 0);
+        }
+        25% {
+          -webkit-transform: scaleX(0.5) translate(50%, 0);
+                  transform: scaleX(0.5) translate(50%, 0);
+        }
+        50% {
+          -webkit-transform: scaleX(0.5) translate(50%, 100%);
+                  transform: scaleX(0.5) translate(50%, 100%);
+        }
+        75% {
+          -webkit-transform: scaleX(1) translate(50%, 100%);
+                  transform: scaleX(1) translate(50%, 100%);
+        }
+        75% {
+          -webkit-transform: scaleX(1) translate(0, 100%);
+                  transform: scaleX(1) translate(0, 100%);
+        }
+      }
+      
+      .gifi__yellow_rectangle {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        padding-bottom: 3.125rem;
+        width: 6.25rem;
+        background-color: #ffd400;
+        z-index: 0;
+        -webkit-animation: yellow-rect-animation 3s ease 2s infinite;
+                animation: yellow-rect-animation 3s ease 2s infinite;
+      }
+      
+      @-webkit-keyframes pink-rect-animation {
+        0% {
+          -webkit-transform: translate(0, 0) scaleX(1);
+                  transform: translate(0, 0) scaleX(1);
+        }
+        25% {
+          -webkit-transform: translate(75%, 0) scaleX(0.5);
+                  transform: translate(75%, 0) scaleX(0.5);
+        }
+        50% {
+          -webkit-transform: translate(0, 0) scaleX(1);
+                  transform: translate(0, 0) scaleX(1);
+        }
+        75% {
+          -webkit-transform: translate(0, 0) scaleX(1);
+                  transform: translate(0, 0) scaleX(1);
+        }
+      }
+      
+      @keyframes pink-rect-animation {
+        0% {
+          -webkit-transform: translate(0, 0) scaleX(1);
+                  transform: translate(0, 0) scaleX(1);
+        }
+        25% {
+          -webkit-transform: translate(75%, 0) scaleX(0.5);
+                  transform: translate(75%, 0) scaleX(0.5);
+        }
+        50% {
+          -webkit-transform: translate(0, 0) scaleX(1);
+                  transform: translate(0, 0) scaleX(1);
+        }
+        75% {
+          -webkit-transform: translate(0, 0) scaleX(1);
+                  transform: translate(0, 0) scaleX(1);
+        }
+      }
+      
+      .gifi__pink_rectangle {
+        position: absolute;
+        top: 75%;
+        left: 59.375%;
+        left: calc((100%  - 6.25rem) * 0.758620689655 - 3.125rem - 6.25rem);
+        padding-bottom: 3.125rem;
+        width: 6.25rem;
+        background-color: #f6adcd;
+        z-index: 0;
+        -webkit-animation: pink-rect-animation 3s ease 1s infinite;
+                animation: pink-rect-animation 3s ease 1s infinite;
+      }
+      
+      @-webkit-keyframes grey-circle-animation {
+        0% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+        }
+        25% {
+          -webkit-transform: translateY(-50%);
+                  transform: translateY(-50%);
+        }
+        50% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+        }
+        75% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+        }
+      }
+      
+      @keyframes grey-circle-animation {
+        0% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+        }
+        25% {
+          -webkit-transform: translateY(-50%);
+                  transform: translateY(-50%);
+        }
+        50% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+        }
+        75% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+        }
+      }
+      
+      .gifi__grey-circle {
+        position: absolute;
+        top: 50%;
+        left: 59.375%;
+        left: calc((100%  - 6.25rem) * 0.758620689655 - 3.125rem - 6.25rem);
+        margin-left: 3.125rem;
+        padding-bottom: 6.25rem;
+        width: 6.25rem;
+        background-color: #e0e0e0;
+        border-radius: 50%;
+        z-index: 0;
+        -webkit-animation: grey-circle-animation 3s ease 1s infinite;
+                animation: grey-circle-animation 3s ease 1s infinite;
+      }
+      
+      @-webkit-keyframes orange-circle-animation {
+        0% {
+          -webkit-transform: translate(0, 0);
+                  transform: translate(0, 0);
+        }
+        50% {
+          -webkit-transform: translate(0, 0);
+                  transform: translate(0, 0);
+        }
+        75% {
+          -webkit-transform: translate(-100%, 0);
+                  transform: translate(-100%, 0);
+        }
+      }
+      
+      @keyframes orange-circle-animation {
+        0% {
+          -webkit-transform: translate(0, 0);
+                  transform: translate(0, 0);
+        }
+        50% {
+          -webkit-transform: translate(0, 0);
+                  transform: translate(0, 0);
+        }
+        75% {
+          -webkit-transform: translate(-100%, 0);
+                  transform: translate(-100%, 0);
+        }
+      }
+      
+      .gifi__orange-circle {
+        position: absolute;
+        top: 25%;
+        right: 0;
+        padding-bottom: 6.25rem;
+        width: 6.25rem;
+        background-color: #fccca3;
+        border-radius: 50%;
+        z-index: 0;
+        -webkit-animation: orange-circle-animation 3s ease 1s infinite;
+                animation: orange-circle-animation 3s ease 1s infinite;
+      }
+      
+      .gifi__selection-wrapper {
+        position: relative;
+        display: block;
+        padding-top: 3.125rem;
+        padding-right: 3.125rem;
+        width: 65.625%;
+        width: 75.8620689655%;
+        float: left;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+      }
+      
+      .gifi__search-wrapper {
+        position: relative;
+        margin: 3.125rem 0;
+        margin-left: 0;
+        width: 24.1379310345%;
+        padding-bottom: 25rem;
+        background-color: #c6e2f3;
+        display: block;
+        float: left;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+      }
+      
+      .gifi__body-wrapper {
+        max-width: 100%;
+        padding: 0 3.125rem;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        overflow: hidden;
+      }
+      
+      .gifi__body-wrapper::after {
+        content: '';
+        display: block;
+        width: 100%;
+        clear: both;
+      }
+      
+      .gifi__search-title-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 25%;
+        background-color: #ffffff;
+        border: 0.5em solid black;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        font-size: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 6;
+      }
+      
+      .gifi__search-title-wrapper:hover + .gifi__explorer .gifi__looking-glass-image {
+        -webkit-transform: rotate(2deg) scale(1.12);
+                transform: rotate(2deg) scale(1.12);
+        left: -7.9%;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+      }
+      
+      .gifi__search-title-wrapper:hover + .gifi__explorer .gifi__search-wrapper-image {
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        -webkit-transform: rotate(2deg) scale(1.05);
+                transform: rotate(2deg) scale(1.05);
+      }
+      
+      .gifi__search-title-wrapper:hover + .gifi__explorer .gifi__hand {
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        -webkit-transform: rotate(2deg) scale(1.05);
+                transform: rotate(2deg) scale(1.05);
+      }
+      
+      .gifi__search-title-wrapper span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        width: 100%;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        font-size: 2em;
+        text-align: center;
+      }
+      
+      .gifi__search-wrapper-image {
+        position: absolute;
+        width: 21.5rem;
+        bottom: 19.5%;
+        left: -11%;
+        z-index: 5;
+        pointer-events: none;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+      }
+      
+      .gifi__hand {
+        position: absolute;
+        width: 21.5rem;
+        bottom: 19.5%;
+        left: -11%;
+        z-index: 7;
+        pointer-events: none;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+      }
+      
+      .gifi__looking-glass-image {
+        position: absolute;
+        width: 21.4rem;
+        bottom: 25.3%;
+        left: -5.3%;
+        z-index: 5;
+        pointer-events: none;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+      }
+      
+      .gifi__range-slider {
+        position: relative;
+        width: 50%;
+        width: calc(50% - 1.5625rem);
+        padding-bottom: 6.25rem;
+        float: left;
+      }
+      
+      .gifi__range-slider-age {
+        background-color: #044d80;
+      }
+      
+      .gifi__range-slider-price {
+        margin-left: 3.125rem;
+        background-color: #00af4d;
+      }
+      
+      @media screen and (max-width: 60rem) {
+        .gifi__range-slider {
+          width: 100%;
+          margin: 0;
+        }
+        .gifi__range-slider-age {
+          margin-bottom: 3.125rem;
+        }
+        .gifi__search-wrapper-image {
+          width: 95%;
+        }
+        .gifi__looking-glass-image {
+          left: -6%;
+        }
+      }
+      
+      @media screen and (max-width: 75rem) {
+        .gifi__search-wrapper {
+          width: 41.3793103452%;
+          position: relative;
+          float: right;
+          padding-bottom: 44.8275862073%;
+        }
+        .gifi__selection-wrapper {
+          width: 100%;
+          padding-right: 0;
+        }
+        .gifi__search-wrapper {
+          width: 22.5rem;
+          padding-bottom: 25rem;
+        }
+        .gifi__pink_rectangle {
+          left: calc(50% + 1.5625rem);
+        }
+        .gifi__grey-circle {
+          left: calc(50% + 1.5625rem);
+        }
+        .gifi__looking-glass-image {
+          left: -5.5%;
+        }
+      }
+      
+      @media screen and (max-width: 37.5rem) {
+        .gifi__search-wrapper {
+          width: 100%;
+          padding-bottom: 110%;
+        }
+        .gifi__looking-glass-image {
+          width: 100%;
+          left: -7.5%;
+        }
+        .gifi__looking-glass-image {
+          width: 100%;
+          left: -7.5%;
+          bottom: 23%;
+        }
+        .gifi__hand {
+          width: 100%;
+          left: -11.5%;
+          bottom: 19%;
+        }
+        .gifi__search-title-wrapper:hover + .gifi__explorer .gifi__looking-glass-image {
+          -webkit-transform: rotate(2deg) scale(1.12);
+                  transform: rotate(2deg) scale(1.12);
+          left: -9.8%;
+          -webkit-transition: all 0.4s;
+          transition: all 0.4s;
+        }
+      }
+      
+      .gifi__range-slider-theme-active .gifi__range-slider-age {
+        display: none;
+      }
+      
+      .gifi__range-slider-theme-active .gifi__range-slider-price {
+        margin-left: 0;
+        width: 100%;
+      }
+      
+      .gifi__range-slider-price::after {
+        content: '';
+        position: relative;
+        width: 100%;
+        clear: right;
+      }
+      
+      .gifi__range-slider h2 {
+        position: absolute;
+        top: 50%;
+        left: 7%;
+        margin: 0;
+        max-width: 30%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        font-size: 1.25em;
+        color: #ffffff;
+      }
+      
+      .gifi__range-slider-slide {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        left: calc(30% + 0.5rem);
+        margin: 0;
+        width: 60%;
+        width: calc(60% - 1rem);
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+      }
+      
+      .noUi-connects {
+        border-radius: 0;
+      }
+      
+      .noUi-handle {
+        -webkit-box-shadow: none;
+                box-shadow: none;
+        border-radius: 0;
+        border: none;
+        cursor: -webkit-grab;
+        cursor: grab;
+        font-size: 0.7rem;
+        -webkit-transition: background-color 0.4s ease;
+        transition: background-color 0.4s ease;
+      }
+      
+      .gifi__range-slider-age .noUi-connects {
+        background: #427abf;
+      }
+      
+      .gifi__range-slider-age .noUi-handle {
+        background: #cc3789;
+      }
+      
+      .gifi__range-slider-age .noUi-handle:hover {
+        background: #ad2e74;
+      }
+      
+      .gifi__range-slider-age .noUi-connect {
+        background: #f7c1d8;
+      }
+      
+      .gifi__range-slider-price .noUi-connects {
+        background: #66bf7e;
+      }
+      
+      .gifi__range-slider-price .noUi-handle {
+        background: #044d80;
+      }
+      
+      .gifi__range-slider-price .noUi-handle:hover {
+        background: #00395d;
+      }
+      
+      .gifi__range-slider-price .noUi-connect {
+        background: #9ec9e5;
+      }
+      
+      .noUi-horizontal .noUi-handle {
+        width: 3rem;
+        height: 3rem;
+        right: -1.5rem;
+        top: -1.3125rem;
+      }
+      
+      .noUi-target {
+        background: transparent;
+        border-radius: 0;
+        border: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+      }
+      
+      .noUi-horizontal {
+        height: 0.5rem;
+      }
+      
+      .noUi-handle:after, .noUi-handle:before {
+        content: none;
+      }
+      
+      .noUi-horizontal .noUi-tooltip {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        bottom: auto;
+        border: none;
+        background: transparent;
+        color: #ffffff;
+      }
+      
+      .gifi__find-by {
+        position: relative;
+        float: left;
+        clear: both;
+        margin-top: 3.125rem;
+        width: 100%;
+        padding-bottom: 15.625rem;
+        background-color: #f9d4e4;
+      }
+      
+      .gifi__find-by.gifi__find-by-theme-active {
+        background-color: #c6e2f3;
+      }
+      
+      .gifi__find-by-interest-active .gifi__find-by-theme-slider {
+        display: none;
+      }
+      
+      .gifi__find-by-theme-active .gifi__find-by-interest-slider {
+        display: none;
+      }
+      
+      .gifi__find-by .tns-outer {
+        position: absolute;
+        top: 20%;
+        width: 100%;
+        margin: 0;
+        top: 60%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+      }
+      
+      .gifi__find-by .tns-outer::before, .gifi__find-by .tns-outer::after {
+        content: '';
+        position: absolute;
+        width: 4.5rem;
+        height: 104%;
+        top: -2%;
+        z-index: 2;
+        background: #f9d4e4;
+        pointer-events: none;
+      }
+      
+      @media screen and (max-width: 60rem) {
+        .gifi__find-by .tns-outer::before, .gifi__find-by .tns-outer::after {
+          width: 4rem;
+        }
+      }
+      
+      .gifi__find-by .tns-outer::before {
+        left: 0;
+        background: -webkit-gradient(linear, left top, right top, from(#f9d4e4), color-stop(80%, #f9d4e4), to(rgba(249, 212, 228, 0)));
+        background: linear-gradient(90deg, #f9d4e4 0%, #f9d4e4 80%, rgba(249, 212, 228, 0) 100%);
+      }
+      
+      .gifi__find-by.gifi__find-by-theme-active .tns-outer::before {
+        background: -webkit-gradient(linear, left top, right top, from(#c6e2f3), color-stop(80%, #c6e2f3), to(#c6e2f300));
+        background: linear-gradient(90deg, #c6e2f3 0%, #c6e2f3 80%, #c6e2f300 100%);
+      }
+      
+      .gifi__find-by .tns-outer::after {
+        right: 0;
+        background: -webkit-gradient(linear, right top, left top, from(#f9d4e4), color-stop(80%, #f9d4e4), to(rgba(249, 212, 228, 0)));
+        background: linear-gradient(-90deg, #f9d4e4 0%, #f9d4e4 80%, rgba(249, 212, 228, 0) 100%);
+      }
+      
+      .gifi__find-by.gifi__find-by-theme-active .tns-outer::after {
+        background: -webkit-gradient(linear, right top, left top, from(#c6e2f3), color-stop(80%, #c6e2f3), to(#c6e2f300));
+        background: linear-gradient(-90deg, #c6e2f3 0%, #c6e2f3 80%, #c6e2f300 100%);
+      }
+      
+      .gifi__find-by .tns-inner {
+        width: 86%;
+        margin-left: 7% !important;
+      }
+      
+      .gifi__find-by .tns-controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        pointer-events: none;
+      }
+      
+      .tns-outer .tns-controls button {
+        cursor: pointer;
+        z-index: 10;
+        position: absolute;
+        pointer-events: all;
+        width: 3rem;
+        height: 3rem;
+        background-color: #ffd400;
+        border: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+        background-repeat: no-repeat;
+        background-size: 1.125rem;
+        background-position: center;
+        -webkit-transition: background-color 0.4s ease;
+        transition: background-color 0.4s ease;
+      }
+      
+      .tns-outer .tns-controls button:hover {
+        background-color: #fdbf0f;
+      }
+      
+      .tns-outer .tns-controls button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      
+      .tns-outer .tns-controls button:disabled:hover {
+        background-color: #cccccc;
+      }
+      
+      .tns-outer .tns-controls button:first-child {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26.381' height='46.762' viewBox='0 0 26.381 46.762'%3E%3Cpath d='M106.748,49.5,87.61,68.64l19.138,19.138' transform='translate(-84.61 -45.26)' fill='none' stroke='%23006cb7' stroke-linecap='round' stroke-linejoin='round' stroke-width='6'/%3E%3C/svg%3E");
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+      }
+      
+      .tns-outer .tns-controls button:last-child {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26.381' height='46.762' viewBox='0 0 26.381 46.762'%3E%3Cpath d='M87.61,49.5,106.748,68.64,87.61,87.779' transform='translate(-83.367 -45.26)' fill='none' stroke='%23006cb7' stroke-linecap='round' stroke-linejoin='round' stroke-width='6'/%3E%3C/svg%3E");
+        right: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+      }
+      
+      .gifi__find-by-hidden-button-text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+      
+      .gifi__find-by-slider-slide-button {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+      
+      .gifi__find-by-slider-slide-button:hover .gifi__find-by-interest-image {
+        -webkit-transform: translate(-50%, -50%) scale(1.1);
+                transform: translate(-50%, -50%) scale(1.1);
+      }
+      
+      .gifi__find-by-slider-slide-button:hover .gifi__find-by-theme-image {
+        -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+      }
+      
+      .gifi__find-by-slide-circle {
+        position: relative;
+        width: 80%;
+        padding-bottom: 80%;
+        width: 9.375rem;
+        padding-bottom: 9.375rem;
+        border-radius: 50%;
+        background-color: #f6f6f6;
+        margin: auto;
+        margin-bottom: 0.5em;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      
+      .gifi__find-by-slide-circle.gifi__active {
+        -webkit-box-shadow: inset 0px 0px 0px 5px #00af4d;
+        box-shadow: inset 0px 0px 0px 5px #00af4d;
+      }
+      
+      .gifi__find-by.gifi__find-by-theme-active .gifi__find-by-slide-circle {
+        margin-bottom: 0;
+        border-radius: 0;
+        height: 100%;
+      }
+      
+      .gifi__find-by-slide-title {
+        margin: auto;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        pointer-events: none;
+      }
+      
+      .gifi__find-by-interest-image {
+        position: absolute;
+        max-width: 75%;
+        max-height: 75%;
+        left: 50%;
+        top: 50%;
+        -webkit-transition: -webkit-transform 0.4s ease;
+        transition: -webkit-transform 0.4s ease;
+        transition: transform 0.4s ease;
+        transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+      }
+      
+      .gifi__find-by-interest-image-wide {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      
+      .gifi__find-by-interest-image-high {
+        max-width: none;
+        max-height: 100%;
+        width: auto;
+        height: 100%;
+      }
+      
+      .gifi__find-by-slide-theme-image-wrapper {
+        padding: 1rem;
+      }
+      
+      .gifi__find-by-theme-image {
+        position: relative;
+        width: 12.5rem;
+        max-width: 100%;
+        -webkit-transition: -webkit-transform 0.4s ease;
+        transition: -webkit-transform 0.4s ease;
+        transition: transform 0.4s ease;
+        transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+      }
+      
+      .gifi__find-by-theme-image.gifi__active {
+        -webkit-box-shadow: 0 0 0 7px green;
+                box-shadow: 0 0 0 7px green;
+        -webkit-transform: scale(0.9);
+                transform: scale(0.9);
+      }
+      
+      .gifi__find-by-tabs {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20%;
+        width: 100%;
+      }
+      
+      .gifi__find-by-tabs-interest, .gifi__find-by-tabs-theme {
+        width: 50%;
+        float: left;
+        height: 100%;
+        margin: 0;
+        border: none;
+        font-weight: bold;
+        font-size: 1.25em;
+        cursor: pointer;
+        -webkit-transition: background-color 0.4s ease;
+        transition: background-color 0.4s ease;
+      }
+      
+      .gifi__find-by-tabs-interest {
+        background-color: #f9d4e4;
+      }
+      
+      .gifi__find-by-tabs-interest:hover {
+        background-color: #f7c1d8;
+      }
+      
+      .gifi__find-by-interest-active .gifi__find-by-tabs-interest:hover {
+        background-color: #f9d4e4;
+      }
+      
+      .gifi__find-by-tabs-theme {
+        background-color: #c6e2f3;
+      }
+      
+      .gifi__find-by-tabs-theme:hover {
+        background-color: #96ceea;
+      }
+      
+      .gifi__find-by-theme-active .gifi__find-by-tabs-theme:hover {
+        background-color: #c6e2f3;
+      }
+      
+      @media screen and (max-width: 100rem) {
+        .gifi__wrapper {
+          font-size: 1rem;
+        }
+      }
+      
+      @media screen and (max-width: 100rem) {
+        .gifi__find-by-slide-title {
+          font-size: 1rem;
+        }
+      }
+      
+      @media screen and (max-width: 75rem) {
+        .gifi__search-title-wrapper {
+          height: 6.25rem;
+          position: relative;
+        }
+        .gifi__search-title-wrapper span {
+          position: relative;
+          top: auto;
+          left: auto;
+        }
+        .gifi__search-wrapper {
+          padding-bottom: 0;
+          width: 100%;
+        }
+        .gifi__search-wrapper .gifi__explorer {
+          display: none;
+        }
+      }
+      
+      @media screen and (max-width: 45rem) {
+        .gifi__find-by .tns-inner {
+          width: 75%;
+          margin-left: 12.5% !important;
+        }
+        .gifi__yellow_rectangle {
+          left: 1.5625rem;
+        }
+        .gifi__pink_rectangle {
+          left: auto;
+          right: 4.6875rem;
+        }
+        .gifi__grey-circle {
+          left: auto;
+          right: 1.5625rem;
+        }
+        .gifi__orange-circle, .gifi__green-square, .gifi__blue-circle {
+          display: none;
+        }
+        .gifi__title {
+          left: 1.5625rem;
+          width: calc(100% - 3.125rem);
+        }
+        .gifi__body-wrapper {
+          padding: 0 1.5625rem;
+        }
+        .gifi__find-by-tabs {
+          height: 6.25rem;
+        }
+        .gifi__find-by .tns-outer {
+          top: 12.5rem;
+        }
+        .gifi__find-by-slide-circle {
+          width: 7.8125rem;
+          padding-bottom: 7.8125rem;
+        }
+        .gifi__find-by {
+          padding-bottom: 18.75rem;
+        }
+        .gifi__range-slider {
+          padding-bottom: 7.8125rem;
+        }
+        .gifi__range-slider-slide {
+          top: auto;
+          bottom: 1.8375rem;
+          left: 50%;
+          width: calc(100% - 4.5rem);
+          -webkit-transform: translateX(-50%);
+                  transform: translateX(-50%);
+        }
+        .gifi__range-slider h2 {
+          top: 2rem;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+        }
+        .gifi__wrapper button.gifi__find-by-tabs-theme, .gifi__wrapper button.gifi__find-by-tabs-interest {
+          padding: 0 1rem;
+        }
+        .gifi__title h1 {
+          width: 90%;
+        }
+      }
+      
+      @media screen and (max-width: 37.4375rem) {
+        .gifi__find-by .tns-outer::before, .gifi__find-by .tns-outer::after {
+          width: 3rem;
+        }
+        .gifi__find-by .tns-outer::before {
+          left: 0;
+          background: -webkit-gradient(linear, left top, right top, from(#f9d4e4), to(rgba(249, 212, 228, 0)));
+          background: linear-gradient(90deg, #f9d4e4 0%, rgba(249, 212, 228, 0) 100%);
+        }
+        .gifi__find-by.gifi__find-by-theme-active .tns-outer::before {
+          background: -webkit-gradient(linear, left top, right top, from(#c6e2f3), to(#c6e2f300));
+          background: linear-gradient(90deg, #c6e2f3 0%, #c6e2f300 100%);
+        }
+        .gifi__find-by .tns-outer::after {
+          right: 0;
+          background: -webkit-gradient(linear, right top, left top, from(#f9d4e4), to(rgba(249, 212, 228, 0)));
+          background: linear-gradient(-90deg, #f9d4e4 0%, rgba(249, 212, 228, 0) 100%);
+        }
+        .gifi__find-by.gifi__find-by-theme-active .tns-outer::after {
+          background: -webkit-gradient(linear, right top, left top, from(#c6e2f3), to(#c6e2f300));
+          background: linear-gradient(-90deg, #c6e2f3 0%, #c6e2f300 100%);
+        }
+        .tns-outer .tns-controls button {
+          display: none;
+        }
+      }
+      
+      @media screen and (max-width: 27.5rem) {
+        .gifi__title h1, .gifi__search-title-wrapper span {
+          font-size: 1.5em;
+        }
+      }
+      
+      @media screen and (max-width: 22.5rem) {
+        .gifi__body-wrapper {
+          padding: 0 0.78125rem;
+        }
+        .gifi__title {
+          left: 0.78125rem;
+          width: calc(100% - 1.5625rem);
+        }
+        .gifi__yellow_rectangle {
+          left: 0.78125rem;
+        }
+        .gifi__pink_rectangle {
+          left: auto;
+          right: 3.90625rem;
+        }
+        .gifi__grey-circle {
+          left: auto;
+          right: 0.78125rem;
+        }
+      }
+      
+    </style>
+    <div class="gifi__wrapper">
+      <div class="gifi__title-wrapper">
+        <div class="gifi__green-square"></div>
+        <div class="gifi__blue-circle"></div>
+        <div class="gifi__yellow_rectangle"></div>
+        <div class="gifi__grey-circle"></div>
+        <div class="gifi__pink_rectangle"></div>
+        <div class="gifi__orange-circle"></div>
+        <div class="gifi__title">
+            <h1>LEGO® Ajándék Kereső</h1>
+        </div>
+      </div>
+      <div class="gifi__body-wrapper">
+      <div class="gifi__selection-wrapper">
+        <div class="gifi__range-sliders">
+          <div class="gifi__range-slider gifi__range-slider-age">
+            <h2>Életkor</h2>
+            <div class="gifi__range-slider-slide">
+            </div>
+          </div>
+          <div class="gifi__range-slider gifi__range-slider-price">
+            <h2>Árak</h2>
+            <div class="gifi__range-slider-slide">
+            </div>
+          </div>
+        </div>
+        <div class="gifi__find-by gifi__find-by-interest-active">
+          <div class="gifi__find-by-tabs">
+            <button class="gifi__find-by-tabs-interest" onclick="chooseFilterHandler('interest')">ÉRDEKLŐDÉSI KÖR</button>
+            <button class="gifi__find-by-tabs-theme" onclick="chooseFilterHandler('theme')">TÉMÁK</button>
+          </div>
+          <div class="gifi__find-by-interest-slider">
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','vehicles');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/vehicles/11002_Front_05.webp 1x, ./images/interests/vehicles/11002_Front_05@1,5x.webp 1.5x, ./images/interests/vehicles/11002_Front_05@2x.webp 2x, ./images/interests/vehicles/11002_Front_05@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/vehicles/11002_Front_05.png 1x, ./images/interests/vehicles/11002_Front_05@1,5x.png 1.5x, ./images/interests/vehicles/11002_Front_05@2x.png 2x, ./images/interests/vehicles/11002_Front_05@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/vehicles/11002_Front_05.png 1x, ./images/interests/vehicles/11002_Front_05@1,5x.png 1.5x, ./images/interests/vehicles/11002_Front_05@2x.png 2x, ./images/interests/vehicles/11002_Front_05@3x.png 3x"
+                      src="./images/interests/vehicles/11002_Front_05.png" alt="Lego Monster Truck">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">JÁRMŰVEK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button"
+                onclick="findBy(event, 'interest','space_rockets');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/space/11004_Front_04.webp 1x, ./images/interests/space/11004_Front_04@1,5x.webp 1.5x, ./images/interests/space/11004_Front_04@2x.webp 2x, ./images/interests/space/11004_Front_04@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/space/11004_Front_04.png 1x, ./images/interests/space/11004_Front_04@1,5x.png 1.5x, ./images/interests/space/11004_Front_04@2x.png 2x, ./images/interests/space/11004_Front_04@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/space/11004_Front_04.png 1x, ./images/interests/space/11004_Front_04@1,5x.png 1.5x, ./images/interests/space/11004_Front_04@2x.png 2x, ./images/interests/space/11004_Front_04@3x.png 3x"
+                      src="./images/interests/space/11004_Front_04.png" alt="Lego Space Rocket">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">ÚRHAJÓK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button"
+                onclick="findBy(event, 'interest','buildings');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/buildings/ghost_house.webp 1x, ./images/interests/buildings/ghost_house@1,5x.webp 1.5x, ./images/interests/buildings/ghost_house@2x.webp 2x, ./images/interests/buildings/ghost_house@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/buildings/ghost_house.png 1x, ./images/interests/buildings/ghost_house@1,5x.png 1.5x, ./images/interests/buildings/ghost_house@2x.png 2x, ./images/interests/buildings/ghost_house@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/buildings/ghost_house.png 1x, ./images/interests/buildings/ghost_house@1,5x.png 1.5x, ./images/interests/buildings/ghost_house@2x.png 2x, ./images/interests/buildings/ghost_house@3x.png 3x"
+                      src="./images/interests/buildings/ghost_house.png" alt="LEGO ghost house">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">ÉPÜLETEK</span>
+              </button> <button class="gifi__find-by-slider-slide-button"
+                onclick="findBy(event, 'interest','animals');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub.webp 1x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@1,5x.webp 1.5x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@2x.webp 2x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub.png 1x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@1,5x.png 1.5x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@2x.png 2x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub.png 1x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@1,5x.png 1.5x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@2x.png 2x, ./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub@3x.png 3x"
+                      src="./images/interests/animals/11013_Shopper_AlwaysOn_sharkSub.png" alt="Lego Sharksubmarine">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">ÁLLATOK</span>
+              </button> <button class="gifi__find-by-slider-slide-button"
+                onclick="findBy(event, 'interest','pets');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/pets/11002_Top_01.webp 1x, ./images/interests/pets/11002_Top_01@1,5x.webp 1.5x, ./images/interests/pets/11002_Top_01@2x.webp 2x, ./images/interests/pets/11002_Top_01@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/pets/11002_Top_01.png 1x, ./images/interests/pets/11002_Top_01@1,5x.png 1.5x, ./images/interests/pets/11002_Top_01@2x.png 2x, ./images/interests/pets/11002_Top_01@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/pets/11002_Top_01.png 1x, ./images/interests/pets/11002_Top_01@1,5x.png 1.5x, ./images/interests/pets/11002_Top_01@2x.png 2x, ./images/interests/pets/11002_Top_01@3x.png 3x"
+                      src="./images/interests/pets/11002_Top_01.png" alt="Lego Dog">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">HÁZI KEDVENCEK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','farm_animals');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse.webp 1x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@1,5x.webp 1.5x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@2x.webp 2x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse.png 1x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@1,5x.png 1.5x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@2x.png 2x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse.png 1x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@1,5x.png 1.5x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@2x.png 2x, ./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse@3x.png 3x"
+                      src="./images/interests/farm_animals/11013_Shopper_AlwaysOn_Horse_Horse.png" alt="Lego Horse">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">ISTÁLLÓ LAKÓI</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','wild_animals');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/wild_animals/wild_animals.webp 1x, ./images/interests/wild_animals/wild_animals@1,5x.webp 1.5x, ./images/interests/wild_animals/wild_animals@2x.webp 2x, ./images/interests/wild_animals/wild_animals@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/wild_animals/wild_animals.png 1x, ./images/interests/wild_animals/wild_animals@1,5x.png 1.5x, ./images/interests/wild_animals/wild_animals@2x.png 2x, ./images/interests/wild_animals/wild_animals@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/wild_animals/wild_animals.png 1x, ./images/interests/wild_animals/wild_animals@1,5x.png 1.5x, ./images/interests/wild_animals/wild_animals@2x.png 2x, ./images/interests/wild_animals/wild_animals@3x.png 3x"
+                      src="./images/interests/wild_animals/wild_animals.png" alt="Lego Wild Animals">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">VADÁLLATOK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','dinosaurs');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/dinosaurs/11002_Front_02.webp 1x, ./images/interests/dinosaurs/11002_Front_02@1,5x.webp 1.5x, ./images/interests/dinosaurs/11002_Front_02@2x.webp 2x, ./images/interests/dinosaurs/11002_Front_02@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/dinosaurs/11002_Front_02.png 1x, ./images/interests/dinosaurs/11002_Front_02@1,5x.png 1.5x, ./images/interests/dinosaurs/11002_Front_02@2x.png 2x, ./images/interests/dinosaurs/11002_Front_02@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/dinosaurs/11002_Front_02.png 1x, ./images/interests/dinosaurs/11002_Front_02@1,5x.png 1.5x, ./images/interests/dinosaurs/11002_Front_02@2x.png 2x, ./images/interests/dinosaurs/11002_Front_02@3x.png 3x"
+                      src="./images/interests/dinosaurs/11002_Front_02.png" alt="Lego Dinosaur">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">DÍNÓK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','ninja_dragons');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/ninja_dragons/71008_Lineup_LadySamurai.webp 1x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@1,5x.webp 1.5x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@2x.webp 2x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/ninja_dragons/71008_Lineup_LadySamurai.png 1x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@1,5x.png 1.5x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@2x.png 2x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/ninja_dragons/71008_Lineup_LadySamurai.png 1x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@1,5x.png 1.5x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@2x.png 2x, ./images/interests/ninja_dragons/71008_Lineup_LadySamurai@3x.png 3x"
+                      src="./images/interests/ninja_dragons/71008_Lineup_LadySamurai.png" alt="Lego Lady Samurai">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">NINJA &amp; SÁRKÁNY</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','preschool');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure.webp 1x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@1,5x.webp 1.5x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@2x.webp 2x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure.png 1x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@1,5x.png 1.5x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@2x.png 2x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure.png 1x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@1,5x.png 1.5x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@2x.png 2x, ./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure@3x.png 3x"
+                      src="./images/interests/preschool/10950_Back_02_03_DUPLOMinifigure.png" alt="Lego Duplo Girl">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">SULI ELŐTT</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','real_life_heroes');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01.webp 1x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@1,5x.webp 1.5x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@2x.webp 2x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01.png 1x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@1,5x.png 1.5x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@2x.png 2x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01.png 1x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@1,5x.png 1.5x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@2x.png 2x, ./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01@3x.png 3x"
+                      src="./images/interests/real_life_heroes/11013_Shopper_AlwaysOn_FireEngienOrig_01_01.png" alt="Lego Fire Truck">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">HÉTKÖZNAPI HŐSÖK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','super_heroes');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/superheroes/superheroes.webp 1x, ./images/interests/superheroes/superheroes@1,5x.webp 1.5x, ./images/interests/superheroes/superheroes@2x.webp 2x, ./images/interests/superheroes/superheroes@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/superheroes/superheroes.png 1x, ./images/interests/superheroes/superheroes@1,5x.png 1.5x, ./images/interests/superheroes/superheroes@2x.png 2x, ./images/interests/superheroes/superheroes@3x.png 3x">
+                    <img class="gifi__find-by-interest-image gifi__find-by-interest-image-high"
+                      srcset="./images/interests/superheroes/superheroes.png 1x, ./images/interests/superheroes/superheroes@1,5x.png 1.5x, ./images/interests/superheroes/superheroes@2x.png 2x, ./images/interests/superheroes/superheroes@3x.png 3x"
+                      src="./images/interests/superheroes/superheroes.png" alt="Two boys playing super heroes">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">SZUPERHŐSÖK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','princesses');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/princesses/Princess.webp 1x, ./images/interests/princesses/Princess@1,5x.webp 1.5x, ./images/interests/princesses/Princess@2x.webp 2x, ./images/interests/princesses/Princess@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/princesses/Princess.png 1x, ./images/interests/princesses/Princess@1,5x.png 1.5x, ./images/interests/princesses/Princess@2x.png 2x, ./images/interests/princesses/Princess@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/princesses/Princess.png 1x, ./images/interests/princesses/Princess@1,5x.png 1.5x, ./images/interests/princesses/Princess@2x.png 2x, ./images/interests/princesses/Princess@3x.png 3x"
+                      src="./images/interests/princesses/Princess.png" alt="Girl playing princess with sword">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">HERCEGNŐK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','coding_robot');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/coding_robot/11004_Robot_Coding.webp 1x, ./images/interests/coding_robot/11004_Robot_Coding@1,5x.webp 1.5x, ./images/interests/coding_robot/11004_Robot_Coding@2x.webp 2x, ./images/interests/coding_robot/11004_Robot_Coding@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/coding_robot/11004_Robot_Coding.png 1x, ./images/interests/coding_robot/11004_Robot_Coding@1,5x.png 1.5x, ./images/interests/coding_robot/11004_Robot_Coding@2x.png 2x, ./images/interests/coding_robot/11004_Robot_Coding@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/coding_robot/11004_Robot_Coding.png 1x, ./images/interests/coding_robot/11004_Robot_Coding@1,5x.png 1.5x, ./images/interests/coding_robot/11004_Robot_Coding@2x.png 2x, ./images/interests/coding_robot/11004_Robot_Coding@3x.png 3x"
+                      src="./images/interests/coding_robot/11004_Robot_Coding.png" alt="Lego Robot">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">ROBOTOK &amp; PROGRAMOZÁS</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','mini_dolls');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/mini_dolls/minidolls.webp 1x, ./images/interests/mini_dolls/minidolls@1,5x.webp 1.5x, ./images/interests/mini_dolls/minidolls@2x.webp 2x, ./images/interests/mini_dolls/minidolls@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/mini_dolls/minidolls.png 1x, ./images/interests/mini_dolls/minidolls@1,5x.png 1.5x, ./images/interests/mini_dolls/minidolls@2x.png 2x, ./images/interests/mini_dolls/minidolls@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/mini_dolls/minidolls.png 1x, ./images/interests/mini_dolls/minidolls@1,5x.png 1.5x, ./images/interests/mini_dolls/minidolls@2x.png 2x, ./images/interests/mini_dolls/minidolls@3x.png 3x"
+                      src="./images/interests/mini_dolls/minidolls.png" alt="Lego Mini Dolls boy and girl">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">MINI FIGURÁK</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','harry_potter');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter.webp 1x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@1,5x.webp 1.5x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@2x.webp 2x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter.png 1x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@1,5x.png 1.5x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@2x.png 2x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@3x.png 3x">
+                    <img class="gifi__find-by-interest-image gifi__find-by-interest-image-high"
+                      srcset="./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter.png 1x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@1,5x.png 1.5x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@2x.png 2x, ./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter@3x.png 3x"
+                      src="./images/interests/harry_potter/Brand_KV_2HY20_HarryPotter.png" alt="Boy playing Harry Potter">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">HARRY POTTER</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','arts_crafts');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/arts_crafts/arms.webp 1x, ./images/interests/arts_crafts/arms@1,5x.webp 1.5x, ./images/interests/arts_crafts/arms@2x.webp 2x, ./images/interests/arts_crafts/arms@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/arts_crafts/arms.png 1x, ./images/interests/arts_crafts/arms@1,5x.png 1.5x, ./images/interests/arts_crafts/arms@2x.png 2x, ./images/interests/arts_crafts/arms@3x.png 3x">
+                    <img class="gifi__find-by-interest-image gifi__find-by-interest-image-high"
+                      srcset="./images/interests/arts_crafts/arms.png 1x, ./images/interests/arts_crafts/arms@1,5x.png 1.5x, ./images/interests/arts_crafts/arms@2x.png 2x, ./images/interests/arts_crafts/arms@3x.png 3x"
+                      src="./images/interests/arts_crafts/arms.png" alt="Crossed arms with lego bracelets">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">KREATÍV &amp; DESIGN</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','music');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/music/10717_Back_10.webp 1x, ./images/interests/music/10717_Back_10@1,5x.webp 1.5x, ./images/interests/music/10717_Back_10@2x.webp 2x, ./images/interests/music/10717_Back_10@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/music/10717_Back_10.png 1x, ./images/interests/music/10717_Back_10@1,5x.png 1.5x, ./images/interests/music/10717_Back_10@2x.png 2x, ./images/interests/music/10717_Back_10@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/music/10717_Back_10.png 1x, ./images/interests/music/10717_Back_10@1,5x.png 1.5x, ./images/interests/music/10717_Back_10@2x.png 2x, ./images/interests/music/10717_Back_10@3x.png 3x"
+                      src="./images/interests/music/10717_Back_10.png" alt="Lego Record Player">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">ZENE</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','stem');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/stem/60230_STEM_02.webp 1x, ./images/interests/stem/60230_STEM_02@1,5x.webp 1.5x, ./images/interests/stem/60230_STEM_02@2x.webp 2x, ./images/interests/stem/60230_STEM_02@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/stem/60230_STEM_02.png 1x, ./images/interests/stem/60230_STEM_02@1,5x.png 1.5x, ./images/interests/stem/60230_STEM_02@2x.png 2x, ./images/interests/stem/60230_STEM_02@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/stem/60230_STEM_02.png 1x, ./images/interests/stem/60230_STEM_02@1,5x.png 1.5x, ./images/interests/stem/60230_STEM_02@2x.png 2x, ./images/interests/stem/60230_STEM_02@3x.png 3x"
+                      src="./images/interests/stem/60230_STEM_02.png" alt="Lego table with scientific equipment">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">TUDOMÁNY</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'interest','gaming');">
+                <div class="gifi__find-by-slide-circle">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/interests/gaming/gaming.webp 1x, ./images/interests/gaming/gaming@1,5x.webp 1.5x, ./images/interests/gaming/gaming@2x.webp 2x, ./images/interests/gaming/gaming@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/interests/gaming/gaming.png 1x, ./images/interests/gaming/gaming@1,5x.png 1.5x, ./images/interests/gaming/gaming@2x.png 2x, ./images/interests/gaming/gaming@3x.png 3x">
+                    <img class="gifi__find-by-interest-image"
+                      srcset="./images/interests/gaming/gaming.png 1x, ./images/interests/gaming/gaming@1,5x.png 1.5x, ./images/interests/gaming/gaming@2x.png 2x, ./images/interests/gaming/gaming@3x.png 3x"
+                      src="./images/interests/gaming/gaming.png" alt="Girl playing mindcraft">
+                  </picture>
+                </div> <span class="gifi__find-by-slide-title">VIDEÓJÁTÉKOK</span>
+              </button>
+            </div>
+            <div class="gifi__find-by-theme-slider">
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','duplo');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg.webp 1x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@1,5x.webp 1.5x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@2x.webp 2x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg@3x.png 3x"
+                      src="./images/themes/duplo/DUPLO_1HY21_Horizontal_btn_bg.png" alt="Lego Duplo">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">Duplo</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','classic');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg.webp 1x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@1,5x.webp 1.5x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@2x.webp 2x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg@3x.png 3x"
+                      src="./images/themes/classic/CLASSIC_1HY21_Horizontal_btn_bg.png" alt="Lego Classic">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">Classic</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','city');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/city/City_1HY21_Horizontal_btn_bg.webp 1x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@1,5x.webp 1.5x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@2x.webp 2x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/city/City_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/city/City_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/city/City_1HY21_Horizontal_btn_bg@3x.png 3x"
+                      src="./images/themes/city/City_1HY21_Horizontal_btn_bg.png" alt="Lego City">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">City</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','friends');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg.webp 1x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@1,5x.webp 1.5x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@2x.webp 2x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg@3x.png 3x"
+                      src="./images/themes/friends/Friends_1HY21_Horizontal_btn_nobg.png" alt="Lego Friends">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">Friends</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','minifigures');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg.webp 1x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@1,5x.webp 1.5x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@2x.webp 2x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg@3x.png 3x"
+                      src="./images/themes/minifigures/71029_MINIFIGURES_1HY21_Horizontal_btn_nobg.png" alt="Lego Minifigures">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">Minifigures</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','ctf');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg.webp 1x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@1,5x.webp 1.5x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@2x.webp 2x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg@3x.png 3x"
+                      src="./images/themes/ctf/CTF_1HY21_Horizontal_btn_nobg.png" alt="Lego CTF">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">CTF</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','ideas');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg.webp 1x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@1,5x.webp 1.5x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@2x.webp 2x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg@3x.png 3x"
+                      src="./images/themes/ideas/21325_IDEAS_1HY21_Horizontal_btn_nobg.png" alt="Lego Ideas">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">Ideas</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','creator');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg.webp 1x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@1,5x.webp 1.5x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@2x.webp 2x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg.png 1x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@1,5x.png 1.5x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@2x.png 2x, ./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg@3x.png 3x"
+                      src="./images/themes/creator/10278_Creator_Expert_1HY21_Horizontal_btn_nobg.png" alt="Lego Creator">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">Creator</span>
+              </button> 
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','creator_3in1');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <source type="image/webp"
+                      srcset="./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg.webp 1x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@1,5x.webp 1.5x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@2x.webp 2x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@3x.webp 3x">
+                    <source type="image/png"
+                      srcset="./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@3x.png 3x">
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg.png 1x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@1,5x.png 1.5x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@2x.png 2x, ./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg@3x.png 3x"
+                      src="./images/themes/creator3in1/Creator_3in1_1HY21_Horizontal_btn_bg.png" alt="Lego Creator 3 in 1">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">Creator 3 in 1</span>
+              </button> 
+
+              // HERE COMES THE THEMES I ADD
+              <button class="gifi__find-by-slider-slide-button" onclick="findBy(event, 'theme','SanyiaHajós');">
+                <div class="gifi__find-by-slide-theme-image-wrapper">
+                  <picture>
+                    <img class="gifi__find-by-theme-image"
+                      srcset="./images/themes/SanyiaHajós/sanyi1.jpg 1x, ./images/themes/SanyiaHajós/sanyi1.jpg 1.5x, ./images/themes/SanyiaHajós/sanyi1.jpgg 2x, ./images/themes/SanyiaHajós/sanyi1.jpg 3x"
+                      src="./images/themes/SanyiaHajós/sanyi1.jpg" alt="SanyiaHajós">
+                  </picture>
+                </div>
+                <span class="gifi__find-by-hidden-button-text">SanyiaHajós</span>
+              </button>
+
+              
+
+
+            </div>
+          </div>
+        </div>
+      <div class="gifi__search-wrapper">
+        <button class="gifi__search-title-wrapper" onclick="getSearchResult()">
+          <span>MUTASD A TALÁLATOT</span>
+        </button>
+        <div class="gifi__explorer">
+          <picture>
+            <source type="image/webp" srcset="./images/search_button/10246_HardToFind_hand.webp 1x, ./images/search_button/10246_HardToFind_hand@1,5x.webp 1.5x, ./images/search_button/10246_HardToFind_hand@2x.webp 2x, ./images/search_button/10246_HardToFind_hand@3x.webp 3x">
+            <source type="image/png" srcset="./images/search_button/10246_HardToFind_hand.png 1x, ./images/search_button/10246_HardToFind_hand@1,5x.png 1.5x, ./images/search_button/10246_HardToFind_hand@2x.png 2x, ./images/search_button/10246_HardToFind_hand@3x.png 3x">
+            <img class="gifi__hand" srcset="./images/search_button/10246_HardToFind_hand.png 1x, ./images/search_button/10246_HardToFind_hand.png@1,5x.png 1.5x, ./images/search_button/10246_HardToFind_hand@2x.png 2x, ./images/search_button/10246_HardToFind_hand@3x.png 3x" src="./images/search_button/10246_HardToFind_hand.png" alt="Lego Detective Hand">
+          </picture>
+          <picture>
+            <source type="image/webp" srcset="./images/search_button/10246_HardToFind.webp 1x, ./images/search_button/10246_HardToFind@1,5x.webp 1.5x, ./images/search_button/10246_HardToFind@2x.webp 2x, ./images/search_button/10246_HardToFind@3x.webp 3x">
+            <source type="image/png" srcset="./images/search_button/10246_HardToFind.png 1x, ./images/search_button/10246_HardToFind@1,5x.png 1.5x, ./images/search_button/10246_HardToFind@2x.png 2x, ./images/search_button/10246_HardToFind@3x.png 3x">
+            <img class="gifi__search-wrapper-image" srcset="./images/search_button/10246_HardToFind.png 1x, ./images/search_button/10246_HardToFind.png@1,5x.png 1.5x, ./images/search_button/10246_HardToFind@2x.png 2x, ./images/search_button/10246_HardToFind@3x.png 3x" src="./images/search_button/10246_HardToFind.png" alt="Lego Detective">
+          </picture>
+          <picture class="gifi__looking-glass-image">
+            <source type="image/webp" srcset="./images/search_button/looking-glass.webp 1x, ./images/search_button/looking-glass@1,5x.webp 1.5x, ./images/search_button/looking-glass@2x.webp 2x, ./images/search_button/looking-glass@3x.webp 3x">
+            <source type="image/png" srcset="./images/search_button/looking-glass.png 1x, ./images/search_button/looking-glass@1,5x.png 1.5x, ./images/search_button/looking-glass@2x.png 2x, ./images/search_button/looking-glass@3x.png 3x">
+            <img class="gifi__looking-glass-image" srcset="./images/search_button/looking-glass.png 1x, ./images/search_button/looking-glass.png@1,5x.png 1.5x, ./images/search_button/looking-glass@2x.png 2x, ./images/search_button/looking-glass@3x.png 3x" src="./images/search_button/looking-glass.png" alt="Lego Detective Looking Glass">
+          </picture>
+        </div>
+      </div>  
+    </div>
+    </div>
+    
+    <script>
+      /* nouislider (https://github.com/leongersen/noUiSlider) */
+      // Edit these two values if you need to change currency symbol max price
+          var currencySymbol = "";
+          var priceMax = 350000;
+
+          var slides = document.getElementsByClassName('gifi__range-slider-slide');
+
+          var ageFormat = wNumb({
+            decimals: 0,
+            edit: function( a ){
+              if(a === '99') {
+                return '99+'
+              } else {
+                return a
+              };
+            }
+          });
+
+          // Age range slider
+          noUiSlider.create(slides[0], {
+              start: [0, 18],
+              connect: true,
+              range: {
+                  'min': 0,
+                  'max': 18
+              },
+              format: ageFormat,
+              step: 1,
+              behaviour: 'tap',
+              tooltips: true,
+          });
+
+          // Price range slider
+          noUiSlider.create(slides[1], {
+              start: [0, priceMax],
+              connect: true,
+              range: {
+                  'min': 0,
+                  'max': priceMax
+              },
+              format: wNumb({
+                decimals: 0,
+                prefix: currencySymbol
+              }),
+              step: 1,
+              behaviour: 'tap',
+              tooltips: true
+          });
+
+
+          /* Search result */
+
+          // 'searchResult' will contain the final search result values
+          var searchResult = {};
+          var activeFilter = 'interest';
+          var filters = {};
+          // Here I add the shop renter ids fro Themes
+          const shopRenterDict = { classic: 5, duplo: 11, city: 33, friends: 25, minifigures: 59, 
+            ctf: 9, ideas: 19, creator: 1, creator_3in1: 1, SanyiaHajós: 7};
+          const shopRenterInterest = { vehicles: 8, space_rockets: 17};
+          
+
+
+          // Function run when the user clicks on either an interest or a theme. Adds or removes the clicked element from the 'filters' object.
+          function findBy(e, type, category) {
+                      var activeEl = e.target; // Clicked element
+                      var value = activeEl.getAttribute('data-value');
+                      if(!filters[type]) {
+                        filters[type] = [];
+                      }
+                      if(filters[type].indexOf(value) === -1) {
+                        filters[type].push(value);
+                        activeEl.classList.add('gifi__active');
+                      } else {
+                        filters[type].splice(filters[type].indexOf(value), 1);
+                        activeEl.classList.remove('gifi__active');
+                      }
+                    }
+
+                    // Function run when the user clicks search. Add needed functionality to display the products in this function. Use the 'searchResult' variable to retrieve the data.
+                    function getSearchResult() {
+                      // resetting the search result object to make sure all data is fresh
+                      searchResult = {};
+                      var ageValues = slides[0].noUiSlider.get();
+                      var ageMin = ageValues[0];
+                      var ageMax = ageValues[1];
+
+                      var priceValues = slides[1].noUiSlider.get();
+                      var priceMin = parseFloat(priceValues[0].replace(currencySymbol, '')).toFixed(2);
+                      var priceMax = parseFloat(priceValues[1].replace(currencySymbol, '')).toFixed(2);
+
+                      // Only adding age ranges to the result if the user has chosen interests as filter 
+                      if(activeFilter === 'interest') {
+                        searchResult.age = {
+                          min: ageMin,
+                          max: ageMax
+                        };
+                      }
+
+                      // Adding price ranges to result
+                      searchResult.price = {
+                        min: priceMin,
+                        max: priceMax
+                      };
+
+                      // adding the chosen categories
+                      searchResult[activeFilter] = filters[activeFilter];
+
+                      // Constructing the URL based on the selected filters
+                      var url = 'https://kockarendeles.hu/index.php?route=filter&filter=';
+                      var selectedFilters = Object.keys(filters).filter(function(key) {
+                        return filters[key].length > 0;
+                      }).map(function(key) {
+                        return filters[key];
+                      });  
+
+                      // Here I construct the url and add the shop renter ids for the selected themes and interests
+                      if(activeFilter === 'interest') {
+                        var interestValues = selectedFilters[0].map(function(interest) {
+                          return shopRenterInterest[interest];
+                        });
+                        url += 'erdeklodes|' + interestValues.join(',');
+                      } else {
+                        var own_array = [];
+                        for (const element of selectedFilters[0]) {
+                          if (element in shopRenterDict) {
+                            own_array.push(shopRenterDict[element]);
+                          } else {
+                              console.log('element not in the dict keys');
+                          }
+                        } 
+                        url += 'temak|' + own_array.join(',');
+                      }
+                                            
+                      
+
+                        // Here I change the values of all ageMin
+                     
+                      if(ageMin >= 0 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,11,1,6,8,2,9';
+                      }
+                      if(ageMin >= 1 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,11,1,6,8,2,9';
+                      }
+                      if(ageMin >= 2 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,11,1,6,8,2,9';
+                      }
+                      if(ageMin >= 3 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,11,6,8,2,9';
+                      }
+                      if(ageMin >= 4 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,11,6,8,9,2';
+                      }
+                      if(ageMin >= 5 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,11,6,8,9';
+                      }
+                      if(ageMin >= 6 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,7,11,6,8,9';
+                      }
+                      if(ageMin >= 7 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,7,11,6,8,9';
+                      }
+                      if(ageMin >= 8 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,7,11,6,8,9';
+                      }
+                      if(ageMin >= 9 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,7,11,8,9';
+                      }
+                      if(ageMin >= 10 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11,8,9';
+                      }
+                      if(ageMin >= 11 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11,9';
+                      }
+                      if(ageMin >= 12 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11,9';
+                      }
+                      if(ageMin >= 13 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11';
+                      }
+                      if(ageMin >= 14 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11';
+                      }
+                      if(ageMin >= 15 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11';
+                      }
+                      if(ageMin >= 16 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11';
+                      }
+                      if(ageMin >= 17 && ageMax <= 18) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,11';
+                      }
+
+                      // Here I change the values of all ageMax
+
+                      if(ageMin >= 0 && ageMax <= 17) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,1,6,8,2,9';
+                      }
+                      if(ageMin >= 0 && ageMax <= 16) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|10,5,4,3,7,1,6,8,2,9';
+                      }
+                      if(ageMin >= 0 && ageMax <= 15) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,7,1,6,8,2,9';
+                      }
+                      if(ageMin >= 0 && ageMax <= 14) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,7,1,6,8,2,9';
+                      }
+                      if(ageMin >= 0 && ageMax <= 13) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,7,1,6,8,2,9';
+                      }
+                      if(ageMin >= 0 && ageMax <= 12) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,7,1,6,8,2,9';
+                      }
+                      if(ageMin >= 0 && ageMax <= 11) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,7,1,6,8,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 10) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,7,1,6,8,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 9) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,7,1,6,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 8) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,1,6,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 7) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|5,4,3,1,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 6) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|4,3,1,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 5) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|3,1,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 4) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|1,2';
+                      }
+                      if(ageMin >= 0 && ageMax <= 3) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|1';
+                      }
+                      if(ageMin >= 0 && ageMax <= 2) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|1';
+                      }
+                      if(ageMin >= 0 && ageMax <= 1) {
+                        url = url.replace(/\/korhatar\|[\d,]+/g, '') + '/korhatar|1';
+                      }
+
+
+                      // Here I add the price range to the url 
+                      if(priceMin >= 0 || priceMax <= 350) {
+                        url += '/price|HUF' + ',' + priceMin + ':' + priceMax;
+                      }
+                    
+                      window.location.href = url;
+                    };
+  
+
+      // Function run when the user clicks on either an interest or a theme. Adds or removes the clicked element from the 'filters' object.
+      function findBy(e, type, category) {
+        
+        var activeEl; // Clicked element
+
+        // Finding the DOM element to toggle the .gifi__active class, which makes the selection visible to the user.
+        if(type === 'interest') {
+          activeEl = e.target.getElementsByClassName('gifi__find-by-slide-circle')[0];
+        } else if(type === 'theme') {
+          console.log('theme', e.target)
+          activeEl = e.target.getElementsByClassName('gifi__find-by-theme-image')[0] || e.target;
+        };
+        
+        // toggling the .gifi__active to display the selection to the user.
+        if(activeEl) {
+          activeEl.classList.toggle('gifi__active');
+        };
+
+
+        // Adding or removing the element from the 'filters' object.
+        if(filters[type]) {
+          // if the type of category (interest or theme) already exists in the filter object add or remove the chosen category
+
+          var typeArray = filters[type];
+
+          // Checking if the category is already selected by the user
+          const catExists = typeArray.filter(function(item) {
+            return item === category;
+          });
+
+          if(catExists && catExists[0]) {
+            // deleting the selected element from the filter
+            filters[type] = typeArray.filter(function(item) {
+              return item !== category;
+            });            
+          } else {
+            // adding the selected element from the filter
+            filters[type].push(category);
+          };
+        } else {
+          // Add the filter type (interest or theme) with the selected category as the only element if the filter type does not exist.
+          filters[type] = [category];
+        }
+      }
+
+
+      /* Sliders for category selction. Uses Tiny Slider 2 (https://github.com/ganlanyuan/tiny-slider) */
+      // Tiny Slider 2 containing interests
+      var interestSlider = tns({
+        container: '.gifi__find-by-interest-slider',
+        items: 5,
+        arrowKeys: false,
+        mouseDrag: true,
+        useLocalStorage: false,
+        nav: false,
+        controlsText: ['<span class="gifi__find-by-hidden-button-text">Previous</span>', '<span class="gifi__find-by-hidden-button-text">Next</span>'],
+        loop: false,
+        responsive: {
+          0: {
+            items: 1,
+            fixedWidth: 125,
+            gutter: 32,
+          },
+          600: {
+            items: 2,
+            fixedWidth: false,
+            gutter: 0
+          },
+          750: {
+            items: 3
+          },
+          900: {
+            items: 4,
+          },
+          1100: {
+            items: 5
+          },
+          1200: {
+            items: 4
+          },
+          1600: {
+            items: 5
+          }
+        }
+      });
+      // Tiny Slider 2 containing themes
+      var themeSlider = tns({
+        container: '.gifi__find-by-theme-slider',
+        items: 4,
+        arrowKeys: false,
+        mouseDrag: true,
+        useLocalStorage: false,
+        nav: false,
+        controlsText: ['<span class="gifi__find-by-hidden-button-text">Previous</span>', '<span class="gifi__find-by-hidden-button-text">Next</span>'],
+        loop: false,
+        responsive: {
+          0: {
+            items: 1,
+            fixedWidth: 200,
+            gutter: 0,
+          },
+          600: {
+            items: 2,
+            fixedWidth: 250,
+            gutter: 0,
+          },
+          720: {
+            items:3,
+            fixedWidth: false
+          },
+          1080: {
+            items: 4
+          }
+        }
+      });
+
+      // Destroy the themeslider since it is not shown at first. Makes it easy to use the function rebuild() when the user selects this filter type
+      themeSlider.destroy();
+
+      // Functionality for chosen either interest og theme as filter
+      var findByFilterContainer = document.getElementsByClassName('gifi__find-by')[0];
+      
+      function chooseFilterHandler(filter) {
+        
+        var rangeSliderContainer = document.getElementsByClassName('gifi__range-sliders')[0];
+
+        if(filter === 'interest') {
+          activeFilter = 'interest'; // Changing the currently active filter
+          filters = {}; // reset the filter object when changing filter type
+
+          // Showing the correct filter type and toggling visibility classes
+          themeSlider.destroy(); 
+          interestSlider = interestSlider.rebuild();
+          findByFilterContainer.classList.remove('gifi__find-by-theme-active');
+          rangeSliderContainer.classList.remove('gifi__range-slider-theme-active');
+          if(!findByFilterContainer.classList.contains('gifi__find-by-interest-active')) {
+            findByFilterContainer.classList.add('gifi__find-by-interest-active');
+          };
+        };
+        if(filter === 'theme') {
+          activeFilter = 'theme'; // Changing the currently active filter
+          filters = {}; // reset the filter object when changing filter type
+
+          // Showing the correct filter type and toggling visibility classes
+          interestSlider.destroy();
+          themeSlider = themeSlider.rebuild();
+          findByFilterContainer.classList.remove('gifi__find-by-interest-active');
+          if(!findByFilterContainer.classList.contains('gifi__find-by-theme-active')) {
+            findByFilterContainer.classList.add('gifi__find-by-theme-active');
+          }
+          if(!rangeSliderContainer.classList.contains('gifi__range-slider-theme-active')) {
+            rangeSliderContainer.classList.add('gifi__range-slider-theme-active');
+          };
+        };
+      };
+    </script>
+    <!-- Copy end BODY -->
+
+</body>
+</html>
